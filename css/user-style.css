@@ -1,0 +1,94 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-nav {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+
+body,
+p,
+a,
+button,
+li {
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+/* General - Section Styles */
+section {
+    padding-top: 4.5rem;
+    /* spacious top padding */
+    padding-bottom: 4.5rem;
+    /* spacious bottom padding */
+}
+
+
+/* Hero remains default */
+section:first-of-type {
+    background: inherit;
+}
+
+/* Repeat colors for elegance */
+section:nth-of-type(3n+2) {
+    background: #fff5f8;
+    /* soft pink */
+}
+
+section:nth-of-type(3n+3) {
+    background: #f7f5f6;
+    /* soft blush gray, modern */
+}
+
+section:nth-of-type(3n+4) {
+    background: #f2f2f6;
+    /* light gray */
+}
+
+/* All page's main content */
+main.page-main {
+    background: #f8f9fa;
+}
+
+
+/* Specific - Sections */
+.navbar button i {
+    font-size: 1.2rem;
+}
+
+
+
+/* Hero */
+#hero {
+    height: 70vh;
+}
+
+
+/* Services */
+#services .card-img-top {
+    object-fit: cover;
+}
+
+#services #services-main .card-img-top {
+    min-height: 300px;
+    max-height: 300px;
+}
+
+#services #services-other-offers .card-img-top {
+    max-height: 250px;
+}
+
+
+/* About */
+#about .card i {
+    font-size: 5rem;
+}
+
+#about img {
+    object-fit: cover;
+    max-height: 400px;
+}

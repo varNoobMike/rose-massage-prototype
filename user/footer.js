@@ -62,7 +62,7 @@ document.querySelector('#footerContainer').innerHTML = `
             <hr class="mt-4">
 
             <div class="text-center small text-muted">
-                &copy; 2025 Rose Massage Spa. Relax. Refresh. Rejuvenate.
+                &copy; 2025 Rose Massage Services. Relax. Refresh. Rejuvenate.
             </div>
 
         </div>

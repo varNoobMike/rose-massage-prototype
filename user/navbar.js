@@ -1,5 +1,5 @@
 document.querySelector('#navbarContainer').innerHTML = `
-    <nav class="navbar navbar-light bg-light shadow-sm border-0 py-3">
+    <nav class="navbar navbar-white bg-white shadow-sm border-0 py-3">
         <div class="container">
             <a class="navbar-brand text-primary fs-3" href="index.html">Rose Massage</a>
 
