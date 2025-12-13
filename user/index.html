@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Rose Massage</title>
+
+    <!-- Bootswatch Lux Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light bg-light shadow-sm border-0 py-3">
+        <div class="container">
+            <a class="navbar-brand text-primary fs-3" href="index.html">Rose Massage</a>
+
+            <!-- Offcanvas trigger for small screens -->
+            <button class="btn btn-outline-primary d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <!-- Navbar links for large screens -->
+            <div class="d-none d-lg-flex">
+                <ul class="navbar-nav flex-row gap-3">
+                    <li class="nav-item me-3"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="signin.html">Signin</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="signup.html">Signup</a></li>
+                    <li class="nav-item"><a class="btn btn-primary text-white" href="book.html">Book Now</a></li>
+                </ul>
+            </div>
+
+            <!-- Offcanvas menu -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-primary">Rose Massage</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item mt-3"><a class="btn btn-primary w-100" href="#contact">Book Now</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section id="hero" class="text-dark py-5">
+        <div class="container h-100">
+            <div class="row h-100 flex-column justify-content-center align-items-center text-center">
+                <h1 class="display-3 fw-semibold mb-1">Lorem ipsum dolor sit amet.</h1>
+                <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services" class="">
+
+        <!-- Main Services -->
+        <div id="services-main" class="container">
+
+            <h2 class="display-5 fw-semibold text-center mb-2">Our <span class="text-primary">Services</span></h2>
+            <p class="lead text-center mb-lg-5 mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+
+            <div class="row g-4 justify-content-center align-items-center">
+
+
+                <!-- Traditional Whole Body (Soft-Medium) -->
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card border-0 shadow-sm h-100 overflow-hidden bg-white">
+
+                        <!-- Image + Duration Badge -->
+                        <div class="position-relative">
+                            <img src="../images/full-body.jpg" alt="Traditional Whole Body (Soft-Medium)"
+                                class="card-img-top">
+
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2 shadow-sm">
+                                <i class="bi bi-clock-history me-1"></i> 1 hour
+                            </span>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="card-body p-4 text-center">
+
+                            <h5 class="card-title fw-semibold mb-2">Traditional Whole Body</h5>
+
+                            <span class="badge bg-light text-dark border small mb-3">
+                                Soft – Medium
+                            </span>
+
+                            <p class="text-primary fs-3 fw-bold mb-4">₱450</p>
+
+                            <a href="#contact" class="btn btn-primary px-4 py-2">
+                                <i class="bi bi-calendar2-check me-1"></i> Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Traditional Whole Body (Hard) -->
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card border-0 shadow-sm h-100 overflow-hidden bg-white"">
+
+                        <!-- Image + Duration Badge -->
+                        <div class=" position-relative">
+                        <img src="../images/full-body-2.jpg" alt="Traditional Whole Body (Hard)" class="card-img-top">
+
+                        <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2 shadow-sm">
+                            <i class="bi bi-clock-history me-1"></i> 1 hour
+                        </span>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="card-body p-4 text-center">
+
+                        <h5 class="card-title fw-semibold mb-2">Traditional Whole Body</h5>
+
+                        <span class="badge bg-light text-dark border small mb-3">
+                            Hard
+                        </span>
+
+                        <p class="text-primary fw-bold fs-3 fw-semibold mb-4">₱550</p>
+
+                        <a href="#contact" class="btn btn-primary px-4 py-2">
+                            <i class="bi bi-calendar2-check me-1"></i> Book Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        <!-- Other Offers -->
+        <div id="services-other-offers" class="container mt-5 pt-5">
+
+            <h3 class="display-6 fw-semibold fs-1 mb-2 text-lg-start text-center">Other <span
+                    class="text-primary">Offers</span>
+            </h3>
+            <p class="lead text-lg-start text-center mb-lg-5 mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing.
+            </p>
+
+
+            <div class="row g-4 justify-content-center">
+
+
+                <!-- Back -->
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="card border-0 shadow-sm h-100 overflow-hidden bg-white">
+
+                        <!-- Image + Duration Badge -->
+                        <div class="position-relative">
+                            <img src="../images/back-massage.jpg" alt="Back Massage" class="card-img-top">
+
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2 shadow-sm">
+                                <i class="bi bi-clock-history me-1"></i> 30 min
+                            </span>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="card-body p-4 text-center">
+
+                            <h5 class="card-title fw-semibold mb-2">Back Massage</h5>
+
+                            <p class="text-primary fs-3 fw-bold mb-4">₱250</p>
+
+                            <a href="#contact" class="btn btn-primary px-4 py-2">
+                                <i class="bi bi-calendar2-check me-1"></i> Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Arm -->
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="card border-0 shadow-sm h-100 overflow-hidden bg-white">
+
+                        <!-- Image + Duration Badge -->
+                        <div class="position-relative">
+                            <img src="../images/arm-massage.jpg" alt="Arm Massage" class="card-img-top">
+
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2 shadow-sm">
+                                <i class="bi bi-clock-history me-1"></i> 30 min
+                            </span>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="card-body p-4 text-center">
+
+                            <h5 class="card-title fw-semibold mb-2">Arm Massage</h5>
+
+                            <p class="text-primary fs-3 fw-bold mb-4">₱250</p>
+
+                            <a href="#contact" class="btn btn-primary px-4 py-2">
+                                <i class="bi bi-calendar2-check me-1"></i> Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Foot -->
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="card border-0 shadow-sm h-100 overflow-hidden bg-white">
+
+                        <!-- Image + Duration Badge -->
+                        <div class="position-relative">
+                            <img src="../images/foot-massage.jpg" alt="Foot Massage" class="card-img-top">
+
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2 shadow-sm">
+                                <i class="bi bi-clock-history me-1"></i> 30 min
+                            </span>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="card-body p-4 text-center">
+
+                            <h5 class="card-title fw-semibold mb-2">Foot Massage</h5>
+
+                            <p class="text-primary fs-3 fw-bold mb-4">₱250</p>
+
+                            <a href="#contact" class="btn btn-primary px-4 py-2">
+                                <i class="bi bi-calendar2-check me-1"></i> Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="py-5">
+        <div class="container">
+
+            <h1 class="text-center mb-2 display-5 fw-bold">About Rose Massage</h1>
+
+            <p class="lead text-center mb-lg-5 mb-4">
+                Rose Massage offers relaxing and professional massage services designed to help you
+                unwind, relieve stress, and restore your body’s natural balance. Our website allows
+                you to easily browse services, check prices, and book your preferred schedule.
+            </p>
+
+            <div class="row justify-content-center g-4">
+
+                <!-- What We Do -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm border-0 p-4 text-center h-100 bg-white">
+                        <i class="bi bi-flower3 text-primary mb-3" style="font-size: 5rem;"></i>
+                        <h4 class="fw-bold">What We Do</h4>
+                        <p class="text-muted mt-3 small">
+                            We provide high-quality massage services including arm, foot, back, and
+                            full-body massage. Each session is designed to give comfort, improve
+                            circulation, and bring relaxation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm border-0 p-4 text-center h-100 bg-white">
+                        <i class="bi bi-stars text-primary mb-3" style="font-size: 5rem;"></i>
+                        <h4 class="fw-bold">Why Choose Us</h4>
+                        <p class="text-muted mt-3 small">
+                            Our therapists are trained, friendly, and committed to giving you a relaxing
+                            and safe experience. We offer flexible booking, fair pricing, and a clean,
+                            welcoming environment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- History -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm border-0 p-4 text-center h-100 bg-white">
+                        <i class="bi bi-clock-history text-primary mb-3" style="font-size: 5rem;"></i>
+                        <h4 class="fw-bold">Our History</h4>
+                        <p class="text-muted mt-3 small">
+                            Rose Massage started as a small home-based wellness service and grew through
+                            word of mouth. Today, we continue our mission to provide accessible and
+                            comforting massage services for everyone.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACCOUNT (Sign In / Sign Up) -->
+    <section id="account" class="py-5">
+        <div class="container">
+
+            <h2 class="display-5 fw-semibold text-center mb-2">
+                Your <span class="text-primary">Account</span>
+            </h2>
+            <p class="lead text-center mb-lg-5 mb-4">
+                Sign in or create an account to book your massage sessions.
+            </p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+
+                    <!-- Tabs nav -->
+                    <ul class="nav nav-tabs mb-4 justify-content-center" id="accountTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="signin-tab" data-bs-toggle="tab"
+                                data-bs-target="#signin" type="button" role="tab" aria-controls="signin"
+                                aria-selected="true">
+                                Sign In
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup"
+                                type="button" role="tab" aria-controls="signup" aria-selected="false">
+                                Sign Up
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tabs content -->
+                    <div class="tab-content" id="accountTabContent">
+
+                        <!-- SIGN IN TAB -->
+                        <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                            <div class="card shadow-sm border-0 bg-white">
+                                <div class="card-body p-4">
+                                    <form action="#" method="POST">
+                                        <div class="mb-4">
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" placeholder="email@example.com">
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" class="form-control" placeholder="*********">
+                                        </div>
+
+                                        <button class="btn btn-primary w-100 py-2">
+                                            <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SIGN UP TAB -->
+                        <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+
+                            <div class="card shadow-sm border-0 bg-white">
+                                <div class="card-body p-4">
+                                    <form action="#" method="POST">
+                                        <div class="mb-4">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Bendong">
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" class="form-control" placeholder="Carl Michael">
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" placeholder="email@example.com">
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" class="form-control" placeholder="********">
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label">Confirm Password</label>
+                                            <input type="confirm-password" class="form-control" placeholder="********">
+                                        </div>
+
+                                        <button class="btn btn-primary w-100 py-2">
+                                            <i class="bi bi-person-plus me-1"></i> Sign Up
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <!-- /tab-content -->
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5">
+        <div class="container">
+
+            <!-- Heading -->
+            <h2 class="display-5 fw-semibold text-center mb-2">
+                Contact <span class="text-primary">Us</span>
+            </h2>
+            <p class="lead text-center mb-lg-5 mb-4">
+                Reach out to us for inquiries or booking assistance.
+            </p>
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- Email -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center bg-white p-4">
+                        <i class="bi bi-envelope-fill fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-semibold mb-2">Email</h5>
+                        <p class="mb-3">info@rosemassage.com</p>
+                        <a href="mailto:info@rosemassage.com" class="btn btn-outline-primary btn-sm">Send Email</a>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center bg-white p-4">
+                        <i class="bi bi-telephone-fill fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-semibold mb-2">Phone</h5>
+                        <p class="mb-3">+63 912 345 6789</p>
+                        <a href="tel:+639123456789" class="btn btn-outline-primary btn-sm">Call Now</a>
+                    </div>
+                </div>
+
+                <!-- Facebook -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center bg-white p-4">
+                        <i class="bi bi-facebook fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-semibold mb-2">Facebook</h5>
+                        <p class="mb-3">@RoseMassageSpa</p>
+                        <a href="https://www.facebook.com/RoseMassageSpa" target="_blank"
+                            class="btn btn-outline-primary btn-sm">Visit Page</a>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center bg-white p-4">
+                        <i class="bi bi-instagram fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-semibold mb-2">Instagram</h5>
+                        <p class="mb-3">@rosemassage</p>
+                        <a href="https://www.instagram.com/rosemassage" target="_blank"
+                            class="btn btn-outline-primary btn-sm">Follow</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- BOOKING -->
+    <section id="booking" class="">
+        <div class="container">
+
+            <!-- Heading -->
+            <h2 class="display-5 fw-semibold text-center mb-2">
+                Book <span class="text-primary">Appointment</span>
+            </h2>
+            <p class="lead text-center mb-lg-5 mb-4">
+                Fill out the form to schedule your massage session
+            </p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+
+                    <!-- Booking Card -->
+                    <div class="card shadow-sm border-0 bg-white">
+
+                        <div class="card-body p-4">
+
+                            <form action="#" method="POST">
+
+                                <div class="mb-4">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Juan Dela Cruz">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="text" class="form-control" placeholder="09xxxxxxxxx">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Select Service</label>
+                                    <select class="form-select">
+                                        <option selected disabled>Select Massage</option>
+                                        <option>Traditional Whole Body (Soft – Medium)</option>
+                                        <option>Traditional Whole Body (Hard)</option>
+                                        <option>Back Massage</option>
+                                        <option>Arm Massage</option>
+                                        <option>Foot Massage</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Preferred Date & Time</label>
+                                    <input type="datetime-local" class="form-control">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Additional Notes (Optional)</label>
+                                    <textarea class="form-control" rows="3"
+                                        placeholder="Any special requests"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 py-2">
+                                    <i class="bi bi-calendar2-check me-1"></i> Book Now
+                                </button>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="text-dark pt-5 pb-3">
+        <div class="container">
+
+            <div class="row">
+
+                <!-- About -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h5 class="fw-semibold mb-3">Rose Massage</h5>
+                    <p class="small text-muted">
+                        Experience premium relaxation with our certified massage therapists. We focus on healing,
+                        comfort, and revitalizing your body.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h5 class="fw-semibold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#hero" class="text-dark text-decoration-none">Home</a></li>
+                        <li><a href="#services" class="text-dark text-decoration-none">Services</a></li>
+                        <li><a href="#about" class="text-dark text-decoration-none">About</a></li>
+                        <li><a href="#contact" class="text-dark text-decoration-none">Contact</a></li>
+                        <li><a href="#account" class="text-dark text-decoration-none">Signin</a></li>
+                        <li><a href="#account" class="text-dark text-decoration-none">Signup</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h5 class="fw-semibold mb-3">Contact Us</h5>
+                    <p class="mb-2">
+                        <i class="bi bi-geo-alt-fill me-2"></i>
+                        Tubod, San Juan, Siquijor, Philippines
+                    </p>
+                    <p class="mb-2">
+                        <i class="bi bi-envelope-fill me-2"></i>
+                        <a href="mailto:info@rosemassage.com"
+                            class="text-dark text-decoration-none">info@rosemassage.com</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="bi bi-telephone-fill me-2"></i>
+                        <a href="tel:+639123456789" class="text-dark text-decoration-none">+63 912 345 6789</a>
+                    </p>
+                    <div class="mt-2">
+                        <a href="https://www.facebook.com/RoseMassageSpa" target="_blank" class="text-dark me-3 fs-5">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/rosemassage" target="_blank" class="text-dark me-3 fs-5">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="mailto:info@rosemassage.com" class="text-dark fs-5">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="mt-4">
+
+            <div class="text-center small text-muted">
+                &copy; 2025 Rose Massage Spa. Relax. Refresh. Rejuvenate.
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

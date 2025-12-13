@@ -1,0 +1,141 @@
+/* Override Bootstrap primary color globally with rose */
+:root {
+    --bs-primary: #FF007F;
+    /* Main rose color */
+    --bs-primary-rgb: 255, 0, 127;
+    /* RGB for rgba usage in Bootstrap */
+    --bs-primary-hover: #e60073;
+    /* Hover state */
+    --bs-primary-active: #cc0066;
+    /* Active state */
+    --bs-primary-focus: #ff3399;
+    /* Focus ring or outline */
+    --bs-primary-bg-subtle: #ffe6f0;
+    /* Subtle background uses */
+    --bs-primary-border-subtle: #ff99c2;
+    /* Subtle border uses */
+    --bs-breadcrumb-divider: ">>";
+    /* Use > or › */
+}
+
+/* Optional: Force .btn-primary to match rose theme in all states */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+    /* white text */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--bs-primary-hover);
+    border-color: var(--bs-primary-hover);
+    color: #fff;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: var(--bs-primary-active);
+    border-color: var(--bs-primary-active);
+    color: #fff;
+}
+
+.btn-primary:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
+    /* focus ring */
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-nav {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+
+body,
+p,
+a,
+button,
+li {
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+/* General - Section Styles */
+section {
+    padding-top: 4rem;
+    /* spacious top padding */
+    padding-bottom: 4rem;
+    /* spacious bottom padding */
+}
+
+
+/* Hero remains default */
+section:first-of-type {
+    background: inherit;
+}
+
+/* Repeat colors for elegance */
+section:nth-of-type(3n+2) {
+    background: #fff5f8;
+    /* soft pink */
+}
+
+section:nth-of-type(3n+3) {
+    background: #f7f5f6;
+    /* soft blush gray, modern */
+}
+
+section:nth-of-type(3n+4) {
+    background: #f2f2f6;
+    /* light gray */
+}
+
+/* All page's main content */
+main.page-main {
+    background: #f8f9fa;
+}
+
+
+/* Specific - Sections */
+.navbar button i {
+    font-size: 1.2rem;
+}
+
+/* Hero */
+#hero {
+    height: 70vh;
+}
+
+
+/* Services */
+#services .card-img-top {
+    object-fit: cover;
+}
+
+#services #services-main .card-img-top {
+    min-height: 300px;
+    max-height: 300px;
+}
+
+#services #services-other-offers .card-img-top {
+    max-height: 250px;
+}
+
+
+/* About */
+#about .card i {
+    font-size: 5rem;
+}
+
+#about img {
+    object-fit: cover;
+    max-height: 400px;
+}
