@@ -19,9 +19,9 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
 
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
 <body>
@@ -309,112 +309,6 @@
     </section>
 
 
-    <!-- ACCOUNT (Sign In / Sign Up) -->
-    <section id="account" class="py-5">
-        <div class="container">
-
-            <h2 class="display-5 fw-semibold text-center mb-2">
-                Your <span class="text-primary">Account</span>
-            </h2>
-            <p class="lead text-center mb-lg-5 mb-4">
-                Sign in or create an account to book your massage sessions.
-            </p>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-
-                    <!-- Tabs nav -->
-                    <ul class="nav nav-tabs mb-4 justify-content-center" id="accountTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="signin-tab" data-bs-toggle="tab"
-                                data-bs-target="#signin" type="button" role="tab" aria-controls="signin"
-                                aria-selected="true">
-                                Sign In
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup"
-                                type="button" role="tab" aria-controls="signup" aria-selected="false">
-                                Sign Up
-                            </button>
-                        </li>
-                    </ul>
-
-                    <!-- Tabs content -->
-                    <div class="tab-content" id="accountTabContent">
-
-                        <!-- SIGN IN TAB -->
-                        <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
-                            <div class="card shadow-sm border-0 bg-white">
-                                <div class="card-body p-4">
-                                    <form action="#" method="POST">
-                                        <div class="mb-4">
-                                            <label class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" placeholder="email@example.com">
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="form-label">Password</label>
-                                            <input type="password" class="form-control" placeholder="*********">
-                                        </div>
-
-                                        <button class="btn btn-primary w-100 py-2">
-                                            <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- SIGN UP TAB -->
-                        <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
-
-                            <div class="card shadow-sm border-0 bg-white">
-                                <div class="card-body p-4">
-                                    <form action="#" method="POST">
-                                        <div class="mb-4">
-                                            <label class="form-label">Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Bendong">
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="form-label">First Name</label>
-                                            <input type="text" class="form-control" placeholder="Carl Michael">
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" placeholder="email@example.com">
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="form-label">Password</label>
-                                            <input type="password" class="form-control" placeholder="********">
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="form-label">Confirm Password</label>
-                                            <input type="confirm-password" class="form-control" placeholder="********">
-                                        </div>
-
-                                        <button class="btn btn-primary w-100 py-2">
-                                            <i class="bi bi-person-plus me-1"></i> Sign Up
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div> <!-- /tab-content -->
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
     <!-- CONTACT -->
     <section id="contact" class="py-5">
         <div class="container">
@@ -477,6 +371,66 @@
     </section>
 
 
+    <!-- BOOKING -->
+    <section id="booking" class="">
+        <div class="container">
+
+            <!-- Heading -->
+            <h2 class="display-5 fw-semibold text-center mb-2">
+                Book <span class="text-primary">Appointment</span>
+            </h2>
+            <p class="lead text-center mb-lg-5 mb-4">
+                Fill out the form to schedule your massage session
+            </p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+
+                    <!-- Booking Card -->
+                    <div class="card shadow-sm border-0 bg-white">
+
+                        <div class="card-body p-4">
+
+                            <form action="#" method="POST">
+
+                                <div class="mb-4">
+                                    <label class="form-label">Select Service</label>
+                                    <select class="form-select">
+                                        <option selected disabled>Select Massage</option>
+                                        <option>Traditional Whole Body (Soft – Medium)</option>
+                                        <option>Traditional Whole Body (Hard)</option>
+                                        <option>Back Massage</option>
+                                        <option>Arm Massage</option>
+                                        <option>Foot Massage</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Preferred Date & Time</label>
+                                    <input type="datetime-local" class="form-control">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Additional Notes (Optional)</label>
+                                    <textarea class="form-control" rows="3"
+                                        placeholder="Any special requests"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 py-2">
+                                    <i class="bi bi-calendar2-check me-1"></i> Book Now
+                                </button>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 
     <!-- FOOTER -->
     <div id="footerContainer"></div>
@@ -484,8 +438,8 @@
 
     <!-- Bootstrap JS -->
     <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="navbar.js" defer></script>
-    <script src="footer.js" defer></script>
+    <script src="navbar-authenticated.js" defer></script>
+    <script src="footer-authenticated.js" defer></script>
 
 
 </body>

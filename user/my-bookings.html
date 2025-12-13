@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Rose Massage</title>
+
+    <!-- Bootswatch Lux Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="navbarContainer"></div>
+
+
+    <main class="page-main">
+
+        <!-- BREADCRUMBS -->
+        <nav id="breadcrumbs" aria-label="breadcrumb" class="pt-lg-5 pt-4 pb-0">
+            <div class="container">
+                <ol class="breadcrumb mb-0 ps-lg-4">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-primary">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">My Bookings</li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- MY BOOKINGS -->
+        <section id="my-bookings" class="py-5">
+            <div class="container">
+
+                <!-- Heading -->
+                <h2 class="display-5 fw-semibold text-center mb-2">
+                    My <span class="text-primary">Bookings</span>
+                </h2>
+                <p class="lead text-center mb-lg-5 mb-4">
+                    View all your past and upcoming massage sessions in one place.
+                </p>
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Service</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example booking row 1 -->
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Dec 14, 2025 - 2:00 PM</td>
+                                <td>Full Body Massage (60 min)</td>
+                                <td><span class="badge bg-success">Upcoming</span></td>
+                                <td>
+                                    <a href="view-booking.html" class="btn btn-sm btn-outline-primary">View</a>
+                                    <a href="#" class="btn btn-sm btn-outline-danger">Cancel</a>
+                                </td>
+                            </tr>
+
+                            <!-- Example booking row 2 -->
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Dec 10, 2025 - 11:00 AM</td>
+                                <td>Foot Massage (30 min)</td>
+                                <td><span class="badge bg-secondary">Completed</span></td>
+                                <td>
+                                    <a href="view-booking.html" class="btn btn-sm btn-outline-primary">View</a>
+                                </td>
+                            </tr>
+
+                            <!-- Example booking row 3 -->
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Dec 8, 2025 - 4:00 PM</td>
+                                <td>Back Massage (45 min)</td>
+                                <td><span class="badge bg-danger">Cancelled</span></td>
+                                <td>
+                                    <a href="view-booking.html" class="btn btn-sm btn-outline-primary">View</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+
+
+
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footerContainer"></div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="navbar-authenticated.js" defer></script>
+    <script src="footer-authenticated.js" defer></script>
+
+
+</body>
+
+</html>

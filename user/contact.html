@@ -26,47 +26,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-light bg-light shadow-sm border-0 py-3">
-        <div class="container">
-            <a class="navbar-brand text-primary fs-3" href="index.html">Rose Massage</a>
-
-            <!-- Offcanvas trigger for small screens -->
-            <button class="btn btn-outline-primary d-lg-none" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar">
-                <i class="bi bi-list"></i>
-            </button>
-
-            <!-- Navbar links for large screens -->
-            <div class="d-none d-lg-flex">
-                <ul class="navbar-nav flex-row gap-3">
-                    <li class="nav-item me-3"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="signin.html">Signin</a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="signup.html">Signup</a></li>
-                    <li class="nav-item"><a class="btn btn-primary text-white" href="book.html">Book Now</a></li>
-                </ul>
-            </div>
-
-            <!-- Offcanvas menu -->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-primary">Rose Massage</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#contact">Contact</a></li>
-                        <li class="nav-item mt-3"><a class="btn btn-primary w-100" href="#contact">Book Now</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="navbarContainer"></div>
 
     <main id="services" class="page-main">
 
@@ -149,75 +109,14 @@
 
 
     <!-- FOOTER -->
-    <footer class="text-dark pt-5 pb-3">
-        <div class="container">
-
-            <div class="row">
-
-                <!-- About -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <h5 class="fw-semibold mb-3">Rose Massage</h5>
-                    <p class="small text-muted">
-                        Experience premium relaxation with our certified massage therapists. We focus on healing,
-                        comfort, and revitalizing your body.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <h5 class="fw-semibold mb-3">Quick Links</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a href="#hero" class="text-dark text-decoration-none">Home</a></li>
-                        <li><a href="#services" class="text-dark text-decoration-none">Services</a></li>
-                        <li><a href="#about" class="text-dark text-decoration-none">About</a></li>
-                        <li><a href="#contact" class="text-dark text-decoration-none">Contact</a></li>
-                        <li><a href="#account" class="text-dark text-decoration-none">Account</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <h5 class="fw-semibold mb-3">Contact Us</h5>
-                    <p class="mb-1">
-                        <i class="bi bi-geo-alt-fill me-2"></i>
-                        Tubod, San Juan, Siquijor, Philippines
-                    </p>
-                    <p class="mb-1">
-                        <i class="bi bi-envelope-fill me-2"></i>
-                        <a href="mailto:info@rosemassage.com"
-                            class="text-dark text-decoration-none">info@rosemassage.com</a>
-                    </p>
-                    <p class="mb-1">
-                        <i class="bi bi-telephone-fill me-2"></i>
-                        <a href="tel:+639123456789" class="text-dark text-decoration-none">+63 912 345 6789</a>
-                    </p>
-                    <div class="mt-2">
-                        <a href="https://www.facebook.com/RoseMassageSpa" target="_blank" class="text-dark me-3 fs-5">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/rosemassage" target="_blank" class="text-dark me-3 fs-5">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-                        <a href="mailto:info@rosemassage.com" class="text-dark fs-5">
-                            <i class="bi bi-envelope-fill"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <hr class="mt-4">
-
-            <div class="text-center small text-muted">
-                &copy; 2025 Rose Massage Spa. Relax. Refresh. Rejuvenate.
-            </div>
-
-        </div>
-    </footer>
+    <div id="footerContainer"></div>
 
 
     <!-- Bootstrap JS -->
     <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+
 </body>
 
 </html>
