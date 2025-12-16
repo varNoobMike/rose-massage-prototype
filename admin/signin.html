@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body class="bg-light">
 
     <!-- NAVBAR -->
     <div id="navbarContainer"></div>
@@ -36,12 +36,12 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-5">
-                    <div class="card shadow-sm">
-                        <div class="card-header">
-                             <h5 class="card-title text-center">Sign In</h5>
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white">
+                            <h5 class="card-title text-center">Sign In</h5>
                         </div>
                         <div class="card-body p-4">
-                           <form action="#" method="POST">
+                            <form action="#" method="POST">
                                 <div class="mb-4">
                                     <label for="" class="form-label">Email</label>
                                     <input type="email" class="form-control">
@@ -53,7 +53,10 @@
                                 <button type="submit" class="btn btn-primary d-block w-100">
                                     <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
                                 </button>
-                           </form>
+                                <p class="text-muted small text-center mt-4 mb-0">
+                                    <i class="bi bi-lock-fill me-1"></i> Secured via HTTPS
+                                </p>
+                            </form>
                         </div>
                     </div>
                 </div>

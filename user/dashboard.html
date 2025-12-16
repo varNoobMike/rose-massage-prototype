@@ -418,9 +418,18 @@
                                         placeholder="Any special requests"></textarea>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary w-100 py-2">
-                                    <i class="bi bi-calendar2-check me-1"></i> Book Now
+
+                                <button type="submit" class="btn btn-primary w-100 py-2" id="bookBtn">
+                                    <span class="btn-icon-text">
+                                        <i class="bi bi-calendar2-check me-1"></i>
+                                        <span class="btn-label">Book Now</span>
+                                    </span>
+
+                                    <span class="spinner-border spinner-border-sm ms-2 d-none" role="status"
+                                        aria-hidden="true" id="bookSpinner">
+                                    </span>
                                 </button>
+
 
                             </form>
 
@@ -442,6 +451,30 @@
     <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="navbar-authenticated.js" defer></script>
     <script src="footer-authenticated.js" defer></script>
+
+
+    <script>
+        document.getElementById('bookBtn').addEventListener('click', function () {
+            const spinner = document.getElementById('bookSpinner');
+            const label = this.querySelector('.btn-label');
+
+            // loading state
+            spinner.classList.remove('d-none');
+            label.textContent = 'Processing...';
+            this.disabled = true;
+
+            // simulate API response
+            setTimeout(() => {
+                spinner.classList.add('d-none');
+                label.textContent = 'Book Now';
+                this.disabled = false;
+                alert('Booking submitted successfully!');
+            }, 8000);
+        });
+    </script>
+
+
+
 
 
 </body>

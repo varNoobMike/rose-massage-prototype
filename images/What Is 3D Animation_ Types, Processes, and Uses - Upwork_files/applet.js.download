@@ -1,0 +1,163 @@
+// global Applet object
+  var Applet = new function() {
+
+    var basePath = "\/i";
+    var phpVars = {
+        "wordpress_api": {
+            "sites": {
+                "press": {
+                    "base_url": "https:\/\/www.upwork.com\/press\/wp-json\/wp\/v2\/",
+                    "endpoint": {
+                        "enterprise_press": "enterprise_press",
+                        "resource": "resource"
+                    }
+                },
+                "hiring": {
+                    "base_url": "https:\/\/www.upwork.com\/hiring\/wp-json\/wp\/v2\/",
+                    "endpoint": {
+                        "posts": "posts",
+                        "seo_skill_pages": "seo-skill-pages"
+                    }
+                },
+                "legal": {
+                    "base_url": "\/i\/api\/wp\/",
+                    "endpoint": {
+                        "resource": "legal_resource",
+                        "resource_category": "legal_resource_category",
+                        "resource_country": "legal_resource_country"
+                    }
+                },
+                "demandgen": {
+                    "base_url": "\/i\/api\/wp\/",
+                    "endpoint": {
+                        "enterprise": "demandgen_enterprise",
+                        "enterprise_category": "demandgen_enterprise_category",
+                        "resource": "demandgen_resource",
+                        "resource_category": "demandgen_resource_category",
+                        "resource_type": "demandgen_resource_type"
+                    }
+                },
+                "seo": {
+                    "base_url": "\/i\/api\/wp\/",
+                    "endpoint": {
+                        "feedback_questions": "seo_feedback_questions",
+                        "questions": "seo_questions",
+                        "skills": "seo_skills",
+                        "guides": "seo_guides",
+                        "guide_categories": "seo_guide_categories"
+                    }
+                }
+            }
+        },
+        "awsRegion": "us-west-2",
+        "event_data": {
+            "data": {
+                "qt": [],
+                "segments": [],
+                "page_url": "\/i\/applet.js",
+                "referer_url": null,
+                "channel": "direct"
+            },
+            "referrer": "desktop"
+        },
+        "XOdeskReferrer": "desktop",
+        "signup_url_params": [],
+        "NotificationASIntegration": true,
+        "ClientSideStatsDMetrics": true,
+        "disputesASIntegration": true,
+        "pageSpeedMetrics": false,
+        "smfAjax": true,
+        "wcFooter": false,
+        "CI7646GraphqlSmf": true,
+        "clientStatsDMetrics": true,
+        "csrfTokenCookieName": "stitcher-lb-staging_XSRF-TOKEN",
+        "csrfTokenHeaderName": "X-Odesk-Csrf-Token",
+        "runtime_id": "88a518267d44d2aa50309bf4c0376526",
+        "ccstCookieName": "stitcher-lb-staging_oauth2_global_js_token",
+        "bpa_ui_base_url": "\/ab\/payments",
+        "bpa_parameter_na_allow_redirects": "nav_allow_redirects",
+        "bpa_ctx": {
+            "base_path": "\/ab\/payments",
+            "device_type": "desktop"
+        },
+        "quarkCookiePrefix": "stitcher-lb-staging",
+        "pageId": null
+    };
+    var angularCache = [];
+    var assetsVersion = "a5c4c7e";
+    var assetsBaseUri = "https:\/\/assets.static-upwork.com\/assets\/Adquiro";
+    var instanceEnv = "prod";
+  
+      var buildBundlePath = function(path) {
+          var bundleRegex = /^@([^\/]*)Bundle\/(.*)$/;
+          var matches = bundleRegex.exec(path);
+  
+          if (matches != null) {
+              return '/bundles/' + matches[1].toLowerCase() + '/' + matches[2];
+          }
+          return path;
+      };
+  
+      this.getBasePath = function() {
+          return basePath;
+      };
+  
+      this.buildInternalAssetPath = function(path) {
+          // CDN assets
+          if (assetsBaseUri) {
+              return assetsBaseUri + '/' + assetsVersion + buildBundlePath(path);
+          }
+  
+          // Local assets
+          var url = basePath + buildBundlePath(path);
+          if (assetsVersion) {
+              if (url.indexOf('?') < 0) {
+                  return url + '?' + assetsVersion;
+              } else {
+                  return url + '&' + assetsVersion;
+              }
+          }
+          return url;
+      };
+  
+      var visitorId = null;
+      visitorId = "203.177.12.226.1765720872703000";
+  
+      this.getVisitorId = function() {
+          return visitorId;
+      };
+  
+      var visitorApiKey = null;
+          visitorApiKey = "";
+      
+      this.getVisitorApiKey = function() {
+          return visitorApiKey;
+      };
+  
+      var User = null;
+      
+  
+      this.getUser = function() {
+          return User;
+      };
+  
+      var Organization = null;
+      
+  
+      this.getOrganization = function() {
+          return Organization;
+      };
+  
+      this.getVar = function(key) {
+          return phpVars[key];
+      };
+  
+      this.getAngularCache = function() {
+          return angularCache;
+      };
+  
+      this.getInstanceEnv = function() {
+          return instanceEnv;
+      };
+  };
+  

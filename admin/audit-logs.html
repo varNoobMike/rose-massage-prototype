@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin - Rose Massage</title>
+
+    <!-- Bootswatch Cosmo Theme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cosmo/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/admin-style.css">
+
+</head>
+
+<body>
+
+
+
+    <div class="container-fluid">
+
+        <div class="row g-0">
+            <div class="col-lg-3 bg-light" id="sidebarContainer">
+                <!-- dynamically added -->
+            </div>
+
+            <div class="col-lg-9 p-4 pt-0 bg-light">
+
+                <!-- NAVBAR -->
+                <div id="navbarContainer"></div>
+
+
+                <!--
+                <div class="alert alert-danger d-flex align-items-center mb-4 shadow-sm border-0" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <div>
+                        <strong>Integration Error:</strong>
+                        Failed to route therapist assignment through middleware.
+                    </div>
+                </div>-->
+
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-light fw-semibold">
+                        <i class="bi bi-journal-text me-2"></i> Audit Logs
+                    </div>
+
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 align-middle">
+                                <thead class="table-white">
+                                    <tr>
+                                        <th>Date & Time</th>
+                                        <th>User</th>
+                                        <th>Action</th>
+                                        <th>Module</th>
+                                        <th>Status</th>
+                                        <th>Routing Progress</th>
+                                        <th>Source</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <!-- COMPLETED -->
+                                    <tr>
+                                        <td>2025-01-15 10:32 AM</td>
+                                        <td>Customer</td>
+                                        <td>Booking Submitted</td>
+                                        <td>Bookings</td>
+                                        <td>
+                                            <span class="badge bg-success">Completed</span>
+                                        </td>
+                                        <td style="min-width:160px">
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" style="width:100%">
+                                                    Done
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>UI</td>
+                                    </tr>
+
+                                    <!-- PENDING -->
+                                    <tr>
+                                        <td>2025-01-15 10:33 AM</td>
+                                        <td>System</td>
+                                        <td>Payment Sync</td>
+                                        <td>Payments</td>
+                                        <td>
+                                            <span class="badge bg-warning text-dark">Pending</span>
+                                        </td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                                    style="width:60%">
+                                                    Routing
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>API</td>
+                                    </tr>
+
+                                    <!-- FAILED -->
+                                    <tr>
+                                        <td>2025-01-15 10:34 AM</td>
+                                        <td>Admin</td>
+                                        <td>Therapist Assignment</td>
+                                        <td>Therapists</td>
+                                        <td>
+                                            <span class="badge bg-danger">Failed</span>
+                                        </td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" style="width:40%">
+                                                    Failed
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Middleware</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footerContainer"></div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="navbar-authenticated.js" defer></script>
+    <script src="sidebar.js" defer></script>
+
+
+</body>
+
+</html>

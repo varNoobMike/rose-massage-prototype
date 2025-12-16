@@ -61,11 +61,16 @@ main.page-main {
 }
 
 
-
-/* Hero */
+/*Hero*/
 #hero {
     height: 70vh;
+    background:
+        linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+        url('../images/hero-bg-0.jpg');
+    background-size: cover;
+    background-position: center;
 }
+
 
 
 /* Services */

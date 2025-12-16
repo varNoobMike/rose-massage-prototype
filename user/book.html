@@ -64,7 +64,7 @@
 
                             <div class="card-body p-4">
 
-                                <form action="#" method="POST">
+                                <form id="bookingForm" action="#" method="POST">
 
                                     <div class="mb-4">
                                         <label class="form-label">Select Service</label>
@@ -115,6 +115,54 @@
     <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="navbar.js" defer></script>
     <script src="footer.js" defer></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const form = document.querySelector('form');
+            const service = form.querySelector('select');
+            const datetime = form.querySelector('input[type="datetime-local"]');
+
+            // create invalid feedback elements
+            const serviceFeedback = document.createElement('div');
+            serviceFeedback.className = 'invalid-feedback';
+            serviceFeedback.textContent = 'Please select a massage service.';
+            service.parentNode.appendChild(serviceFeedback);
+
+            const datetimeFeedback = document.createElement('div');
+            datetimeFeedback.className = 'invalid-feedback';
+            datetimeFeedback.textContent = 'Please select a valid date and time.';
+            datetime.parentNode.appendChild(datetimeFeedback);
+
+            form.addEventListener('submit', function (e) {
+                let isValid = true;
+
+                // reset states
+                service.classList.remove('is-invalid');
+                datetime.classList.remove('is-invalid');
+
+                // validate service
+                if (!service.value || service.selectedIndex === 0) {
+                    service.classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                // validate date & time
+                if (!datetime.value) {
+                    datetime.classList.add('is-invalid');
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    e.preventDefault(); // stop form submission
+                }
+            });
+
+        });
+    </script>
+
+
 
 </body>
 

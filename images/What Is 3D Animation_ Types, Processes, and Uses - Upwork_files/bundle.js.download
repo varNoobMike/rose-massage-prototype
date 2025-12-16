@@ -1,0 +1,429 @@
+(function () {
+  'use strict';
+
+  // Unique ID creation requires a high quality random # generator. In the browser we therefore
+  // require the crypto API and do not support built-in fallback to lower quality random number
+  // generators (like Math.random()).
+  let getRandomValues;
+  const rnds8 = new Uint8Array(16);
+  function rng() {
+    // lazy load so that environments that need to polyfill have a chance to do so
+    if (!getRandomValues) {
+      // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
+      getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
+      if (!getRandomValues) {
+        throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
+      }
+    }
+    return getRandomValues(rnds8);
+  }
+
+  /**
+   * Convert array of 16 byte values to UUID string format of the form:
+   * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+   */
+
+  const byteToHex = [];
+  for (let i = 0; i < 256; ++i) {
+    byteToHex.push((i + 0x100).toString(16).slice(1));
+  }
+  function unsafeStringify(arr) {
+    let offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    // Note: Be careful editing this code!  It's been tuned for performance
+    // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+    return (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase();
+  }
+
+  const randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
+  var native = {
+    randomUUID
+  };
+
+  function v4(options, buf, offset) {
+    if (native.randomUUID && !buf && !options) {
+      return native.randomUUID();
+    }
+    options = options || {};
+    const rnds = options.random || (options.rng || rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+
+    rnds[6] = rnds[6] & 0x0f | 0x40;
+    rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+
+    if (buf) {
+      offset = offset || 0;
+      for (let i = 0; i < 16; ++i) {
+        buf[offset + i] = rnds[i];
+      }
+      return buf;
+    }
+    return unsafeStringify(rnds);
+  }
+
+  function _defineProperty(obj, key, value) {
+    key = _toPropertyKey(key);
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
+  function _toPrimitive(input, hint) {
+    if (typeof input !== "object" || input === null) return input;
+    var prim = input[Symbol.toPrimitive];
+    if (prim !== undefined) {
+      var res = prim.call(input, hint || "default");
+      if (typeof res !== "object") return res;
+      throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return (hint === "string" ? String : Number)(input);
+  }
+  function _toPropertyKey(arg) {
+    var key = _toPrimitive(arg, "string");
+    return typeof key === "symbol" ? key : String(key);
+  }
+
+  const updateVisitorTrackingData = _ref => {
+    let {
+      visitorId,
+      data
+    } = _ref;
+    return `    
+    mutation {
+        updateTrackerVisitorData (
+            visitorId: "${visitorId}"         
+            data: ${data}
+        )
+    }
+`;
+  };
+  const getVisitorTrackingData = _ref2 => {
+    let {
+      visitorId
+    } = _ref2;
+    return `
+    query {
+        tracker {
+            segment (
+                visitorId: "${visitorId}",
+                searchType: "EXACT")
+            {
+                visits {
+                    id
+                    ts
+                    ipAddress
+                    event
+                    channel
+                    uuid
+                    channelClickId
+                    utmSource
+                    utmCampaign
+                    url
+                    device
+                }
+            }
+        }
+    }
+`;
+  };
+
+  class Tracker {
+    constructor($httpGql, $logger) {
+      _defineProperty(this, "$httpGql", void 0);
+      _defineProperty(this, "$logger", void 0);
+      this.$httpGql = $httpGql;
+      this.$logger = $logger;
+    }
+    async updateTrackingDetails() {
+      let data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      try {
+        const {
+          errors
+        } = await this.$httpGql({
+          handleApiErrors: true,
+          auth: false,
+          redirToLogin: false
+        }).post({
+          query: updateVisitorTrackingData({
+            visitorId: data.vId,
+            data: JSON.stringify(JSON.stringify(data)) // One stringify for the http request object, another for the dynamo json object.
+          })
+        }).json();
+        if (errors) {
+          this.$logger.error('[UTM-TRACKER] updateTrackingDetails error:', errors);
+        }
+      } catch (error) {
+        this.$logger.error('[UTM-TRACKER] updateTrackingDetails error:', error);
+      }
+    }
+    async getTrackingDetails() {
+      let params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      try {
+        const {
+          data,
+          errors
+        } = await this.$httpGql({
+          handleApiErrors: true,
+          auth: false,
+          redirToLogin: false
+        }).post({
+          query: getVisitorTrackingData(params)
+        }).json();
+        if (!errors) {
+          return {
+            visits: data.tracker.segment.visits
+          };
+        }
+        if (errors) {
+          this.$logger.error('[UTM-TRACKER] getTrackingDetails error:', errors);
+        }
+      } catch (error) {
+        this.$logger.error('[UTM-TRACKER] getTrackingDetails error:', error);
+      }
+      return {
+        visits: []
+      };
+    }
+  }
+
+  function getClickIdFromUtmParams(utmParams, logger) {
+    const clickId =
+    // Facebook
+    utmParams.fbclid ??
+    // LinkedIn
+    utmParams.li_fat_id;
+    if (!clickId) {
+      logger.warn(`[TRACKER] Missing ClickId`);
+    }
+    return clickId;
+  }
+  function getUtmSourceFromUtmParams(utmParams, logger) {
+    // If utm_source param does not exist, it is inferred from the clickId param.
+    const utmSource = utmParams.utm_source ?? (
+    // eslint-disable-next-line no-nested-ternary
+    utmParams.li_fat_id ? 'Linkedin' : utmParams.fbclid ? 'facebook' : undefined);
+    if (!utmSource) {
+      logger.warn(`[TRACKER] Missing UtmSource`);
+    }
+    return utmSource;
+  }
+  class UtmTracker {
+    constructor($httpGql, $logger, store, route, config) {
+      this.$httpGql = $httpGql;
+      this.$logger = $logger;
+      this.store = store;
+      this.route = route;
+      this.config = config;
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    isValidPaidVisit(utmParams) {
+      function isGoogleVisit() {
+        return utmParams.utm_source === 'google' || utmParams.gclid || utmParams.gbraid || utmParams.wbraid || utmParams.partnerId;
+      }
+      function isBingVisit() {
+        return utmParams.utm_source === 'bing' || utmParams.msclkid;
+      }
+      function isImpactVisit() {
+        return utmParams.utm_source === 'PartnerCentric' || utmParams.source === 'Upwork_Impact' || utmParams.irclickid;
+      }
+
+      // Google, Bing and Impact visits are excluded as they are processed by Brontes' TRACKER
+      // Additionally visits that land on /track page are excluded for the same reason
+      if (utmParams && Object.keys(utmParams).length > 0) {
+        return !isGoogleVisit() && !isBingVisit() && !isImpactVisit() && this.route.name !== 'track' && (utmParams.utm_source || utmParams.utm_campaign || utmParams.fbclid || utmParams.li_fat_id);
+      }
+      return false;
+    }
+    getUtmParams() {
+      return Object.fromEntries(new URLSearchParams(this.route.query).entries());
+    }
+    async init() {
+      const utmParams = this.getUtmParams();
+      if (utmParams && Object.keys(utmParams).length > 0) {
+        this.$logger.log(`[UTM-TRACKER] Visit received: utmParams : ${JSON.stringify(utmParams)} ; visitorId : ${this.store.state.visitor?.id}`);
+      }
+      if (this.isValidPaidVisit(utmParams)) {
+        this.$logger.log(`[UTM-TRACKER] paid visit will be tracked`);
+        await this.updateVisits(utmParams);
+      }
+    }
+    async updateVisits(utmParams) {
+      const tracker = new Tracker(this.$httpGql, this.$logger);
+
+      // Fetch VISITOR Visits from tracker table
+      const {
+        visits
+      } = await tracker.getTrackingDetails({
+        visitorId: this.store.state.visitor?.id
+      });
+      const clickId = getClickIdFromUtmParams(utmParams, this.$logger);
+      const utmSource = getUtmSourceFromUtmParams(utmParams, this.$logger);
+      this.$logger.log(`[UTM-TRACKER] utmSource: '${utmSource}', clickId: '${clickId}'; visitorId : ${this.store.state.visitor?.id}`);
+      const lastIndex = this.store.state.visitor?.id.lastIndexOf('.');
+      const ipAddress = this.store.state.visitor?.id.substring(0, lastIndex);
+      visits.push({
+        id: v4(),
+        ts: new Date().toISOString(),
+        ipAddress,
+        event: 'click',
+        channel: utmSource,
+        channelClickId: clickId,
+        utmSource,
+        utmCampaign: utmParams.utm_campaign,
+        url: this.route.fullPath,
+        device: utmParams.device
+      });
+      while (visits.length > (this.config.utmTracker.maxVisits ?? 50)) {
+        visits.shift();
+      }
+      await tracker.updateTrackingDetails({
+        vId: this.store.state.visitor?.id,
+        visits
+      });
+    }
+  }
+
+  const getRoute = () => {
+    const urlObj = new URL(window.location.href);
+    const query = urlObj.search ? Object.fromEntries(urlObj.searchParams.entries()) : {};
+    return {
+      query,
+      fullPath: urlObj.pathname + urlObj.search,
+      name: urlObj.pathname
+    };
+  };
+
+  const GQL_TOKEN_COOKIE_NAME = 'visitor_wf_gql_token';
+
+  const getCookie = name => {
+    return document.cookie.split('; ').reduce((r, v) => {
+      const parts = v.split('=');
+      return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+    }, '');
+  };
+
+  const isStaging = () => {
+    return window.location.hostname === 'stage.upwork.com';
+  };
+
+  const getVisitorId = () => {
+    return getCookie(`${isStaging() ? 'staging_' : ''}visitor_id`);
+  };
+  const getAccessToken = () => {
+    return getCookie(`${isStaging() ? 'staging_' : ''}${GQL_TOKEN_COOKIE_NAME}`);
+  };
+
+  const graphql = () => {
+    const url = isStaging() ? 'https://stage.upwork.com/api/graphql/v1' : 'https://www.upwork.com/api/graphql/v1';
+    const accessToken = getAccessToken();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    };
+    return {
+      post: _ref => {
+        let {
+          query
+        } = _ref;
+        return {
+          json: async () => {
+            try {
+              const result = await fetch(url, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  ...config.headers
+                },
+                body: JSON.stringify({
+                  query
+                })
+              });
+              const respJson = await result.json();
+              return {
+                data: respJson.data,
+                errors: null
+              };
+            } catch (error) {
+              return {
+                data: null,
+                errors: error
+              };
+            }
+          }
+        };
+      }
+    };
+  };
+
+  const wfTracker = async () => {
+    try {
+      const context = {
+        $httpGql: graphql,
+        $logger: {
+          error: function () {
+            for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+              args[_key] = arguments[_key];
+            }
+            console.error(args);
+          },
+          warn: function () {
+            for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+              args[_key2] = arguments[_key2];
+            }
+            console.warn(args);
+          },
+          log: function () {
+            for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+              args[_key3] = arguments[_key3];
+            }
+            console.log(args);
+          }
+        },
+        route: getRoute(),
+        store: {
+          state: {
+            visitor: {
+              id: getVisitorId()
+            }
+          }
+        },
+        config: {
+          utmTracker: {
+            maxVisits: 50
+          }
+        }
+      };
+      const {
+        $httpGql,
+        $logger,
+        store,
+        route,
+        config
+      } = context;
+      const utmTracker = new UtmTracker($httpGql, $logger, store, route, config);
+      const utmParams = utmTracker.getUtmParams();
+      if (!utmTracker.isValidPaidVisit(utmParams)) return;
+      // setting up visitor_wf_gql_token if none exists
+      const visitorWfGqlToken = getAccessToken();
+      if (!visitorWfGqlToken) {
+        const cookieName = `${isStaging() ? 'staging_' : ''}${GQL_TOKEN_COOKIE_NAME}`;
+        const tokenRes = await fetch(isStaging() ? 'https://stage.upwork.com/ab/brontes/visitor-gql-token/' : 'https://www.upwork.com/ab/brontes/visitor-gql-token/');
+        const tokenData = await tokenRes.json();
+        document.cookie = `${cookieName}=${tokenData.accessToken}; Max-Age=${tokenData.expiresIn}; domain=.upwork.com; path=/`;
+      }
+      utmTracker.init();
+    } catch (e) {
+      console.error(`[UTM-TRACKER] An error occurred during init().`, e);
+    }
+  };
+
+  wfTracker();
+
+})();
